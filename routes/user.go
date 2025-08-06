@@ -7,4 +7,5 @@ import (
 
 func RegisterUserRoutes() {
 	http.HandleFunc("/create-account", handlers.CreateUser) 
+	http.HandleFunc("/", handlers.GetAllUsers) 
 }

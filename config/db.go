@@ -8,10 +8,10 @@ import (
 	"os"
 )
 
-var DB *gorm.DB // 👈 Global variable
+var DB *gorm.DB 
 
 func ConnectDB() error {
-	_ = godotenv.Load() // .env optional
+	_ = godotenv.Load() 
 
 	dsn := fmt.Sprintf(
 		"host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
@@ -24,10 +24,10 @@ func ConnectDB() error {
 
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
-		return fmt.Errorf("❌ DB connection failed: %v", err)
+		return fmt.Errorf("DB connection failed: %v", err)
 	}
 
-	DB = db // 👈 Store db in global variable
-	fmt.Println("✅ GORM connected to PostgreSQL")
+	DB = db 
+	fmt.Println("GORM connected to PostgreSQL")
 	return nil
 }
